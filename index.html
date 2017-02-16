@@ -3,17 +3,28 @@
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Statistically Probable</title>
-</head>
-
+    <link rel="icon" href="/resc/Icon.png">
+    
 <style>
+    
   body {
     background-color: rgb(25,25,25);
     font-family: "Calibri Light", sans-serif;
     line-height: 1.2;
     text-align: center;
     padding: 40px;
-    overflow:hidden;
+      overflow: scroll;
+    overflow-x: hidden;
+
   }
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
     
   /*----------------Box----------------*/
   #Box1{ 
@@ -150,7 +161,7 @@
   }
 
 /*----------------Game Over----------------*/ 
-    #overlay {
+    .overlay {
         visibility: hidden;
         position: absolute;
         left: 0;
@@ -164,9 +175,9 @@
         z-index: 1000;
     }
     
-    #overlay div {
+    .overlay div {
          width:1000px;
-         margin: 25px auto;
+         margin: 20px auto;
          background: #4CAF50;
          border: 1px solid black;
          color: white;
@@ -178,7 +189,7 @@
     }
     
     /* The Close Button */
-    #close {
+    .close {
         color: white;
         float: right;
         font-size: 28px;
@@ -186,8 +197,8 @@
         text-decoration: none
     }
 
-#close:hover,
-#close:focus {
+.close:hover,
+.close:focus {
     color: #aaaaaa;
     text-decoration: none;
     cursor: pointer;
@@ -317,8 +328,315 @@ generated automatically and are common for each slider. */
     -moz-transition: margin 0.3s ease 0.1s;
     -webkit-transition: margin 0.3s ease 0.1s;
 }
+    
+    
+button.List {
+    background-color: rgb(210, 210, 210);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+button.List.active, button.List:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+button.List:after {
+    content: '\002B';
+    color: #000;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+button.List.active:after {
+    content: "\2212";
+   
+}
+
+div.panel {
+    border: none;
+    text-align: left;
+    padding: 0 18px;
+    color: #444;
+    font-size: 15px;
+    background-color: #ddd;
+    max-height: 0;
+    max-width: 900;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+    
 </style>
-<script>
+</head>
+    
+<body onload="var e = document.getElementById('c1'); e.style.border = '2px solid black';">
+    <div id="GameOver" class="overlay">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div>
+         <a href='#' onclick='LMsg()' class="close">&times;</a>
+         <b>Game Over!</b><br><p>Score: <i id="TScore"></i></p> 
+     </div>
+    </div>
+    <div id="Source" class="overlay">
+    <br><br><br><br>
+     <div id="SMsgBox" style="background: rgb(235,235,235); border: none; color: #444; font-size: 15px; height: 650px;">
+         <a href='#' onclick='SMsg()' class="close" style="color: #aaaaaa;">&times;</a>
+         <h2>Sources</h2>
+<p>Here is every sources for each individual statistics or information. <b>Have fun!</b></p>
+<button class="List"><b>Animation</b></button>
+<div class="panel">
+    <p><b>Author:</b> Me <br> <b>Inpiration:</b> <i>"How statistics can be misleading"</i> - Mark Liddell <br><i>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        "Le lieu le plus dangereux de France"</i> - Bruce Benamran</p>
+</div>
+<button class="List"><b>Falling coconut</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 0.000265% ~ 150 deaths a year. <br>
+        <b>Sources:</b> Perkins, M. (2006) Surviving paradise. London, United Kingdom: Lulu.com.</p>
+</div>
+         
+<button class="List"><b>Born female</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 49.552%<br>
+        <b>Sources:</b> The World Bank Group (2016) Population, female (% of total). Available at: <a href='http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS' style="color:black">http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS</a> (Accessed: 22 October 2016).</p>
+</div>
+         
+<button class="List"><b>Born male</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 50.448%<br>
+        <b>Sources:</b> The World Bank Group (2016) Population, male (% of total). Available at: <a href='http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS' style="color:black">http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS</a> (Accessed: 22 October 2016).</p>
+</div>
+         
+<button class="List"><b>Die in a bed</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 0.70% ~ approximation <br>
+        <b>Sources:</b> ruce Benamran, (2014).  Le lieu le plus dangereux de France - e-penser [online] Available from: <a href='https://www.youtube.com/watch?v=lg2hFq9RlYM' style="color:black">https://www.youtube.com/watch?v=lg2hFq9RlYM</a> [accessed 17/05/2016].</p>
+</div>
+
+<button class="List"><b>Wining The United Kingdom's National Lottery Jackpot</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 0.000007% ~ 1/13,983,816 <br>
+        <b>Sources:</b> K. Lloyd, R. (2017) The chances of winning the UK national lottery. Available at: <a href='http://lottery.merseyworld.com/Info/Chances.html' style="color:black">http://lottery.merseyworld.com/Info/Chances.html (Accessed: 25 October 2016).</a></p>
+</div>
+
+     </div>
+    </div>
+    
+
+  <!-- Sounds -->
+    <audio id="audioW" src="Resc/Audio/GetPoint.mp3" ></audio>
+    <audio id="audioL" src="Resc/Audio/GameOver.mp3" ></audio>
+    
+  <!-- Navigation bar -->
+  <ul id="drop-nav" style="border: 1px solid #e7e7e7;">
+    <li style= "display: inline-block;
+    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box1','Box2','Box3','Box4');"  class="active" >Home</a>
+    </li>
+    <li style= "display: inline-block;
+    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box2','Box1','Box3','Box4');">Probably</a>
+    </li>
+    <li style= "display: inline-block;
+    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box3','Box1','Box2','Box4');">Statistically</a>
+    </li>
+    <li style= "display: inline-block;
+    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box4','Box1','Box2','Box3');">About</a>
+    </li>
+  </ul>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <!-- Box -->
+  <div id="Box1"> 
+      
+    <div class="stitch">
+      <img id="Title" src="Resc/Title.png" width=260; height=130;> 
+       
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img id="Helper" src="Resc/HelperWave.gif" width=442; height=300; style="float: right;" onclick="nextSpeech();"> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <img id="speech" src="Resc/Bubble1.png" width=400; height=200>
+  </div>
+
+
+  <div id="Box2"> 
+      <a href='#' onclick='SMsg()' class="close" style="font-size: 30px; color: #aaaaaa;">?</a>
+      <div id="s" class="Score">0</div>
+      <br>
+      <p><b>Which is more Statistically Probable to happen:</b></p>
+    <div id="c1" class= "card" onclick="select('c1', 'c2');">
+     
+        <div class="front face">
+          <img id="PicF1" src="Resc/card.png"  width=200; height=300>
+        </div>
+        <div class="back face">
+          <img id="PicB1" src="Resc/card.png" width=200; height=300>
+        </div>
+      
+    </div>
+
+    <div id="c2" class= "card" onclick="select('c2', 'c1');">
+        <div class="front face">
+          <img id="PicF2" src="Resc/card.png" width=200; height=300;>  
+        </div>
+        <div class="back face">
+          <img id="PicB2" src="Resc/card.png" width=200; height=300;> 
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <input type="button" id="b" class="Button" value="Next" onClick=next();>  
+  </div>
+
+  <div id="Box3"> 
+      <video id="v" width="1000" >
+    <source src="Resc/Main.mp4" type="video/mp4">
+    <source src="Resc/Main.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+  </div>
+
+  <div id="Box4"> 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="accordion">
+    <ul>
+        <li>
+            <input type="radio" name="select" class="accordion-select" checked />
+            <div class="accordion-title">
+                <span><b>About The Website</b></span>
+            </div>
+            <div class="accordion-content">
+                <h2><b>About The Website</b></h2>
+    <p>This is an interactive website which explores the perspective of the world & the influence of statistics/probabilities in our society, and introduce the impact of misleading Statistics & Probabilities to the user through interactive activities and graphical information. This project is made by Jez (me) for educational purpose as part of a personal project in the IB Diploma.</p> 
+            </div>
+            <div class="accordion-separator"></div>
+        </li>
+        <li>
+            <input type="radio" name="select" class="accordion-select" />
+            <div class="accordion-title">
+                <span><b>About Me</b></span>
+            </div>
+            <div class="accordion-content">
+                <h2><b>About Me</b></h2>
+                <p style="float: left;">I'm <b>Jez</b> and I am the person who coded this website. <b>Yeap</b>! All by myself. Oh and before I forget, a <b>big</b> <b>thank you</b> to <b>Mr Askew</b> for guiding through the process of the developing this website.</p>
+
+                <img id="Helper" src="Resc/Helper.png" width=175; height=175; style="float: right;" > 
+            </div>
+            <div class="accordion-separator"></div>
+        </li>
+        <li>
+            <input type="radio" name="select" class="accordion-select" />
+            <div class="accordion-title">
+                <span><b>Statistics</b></span>
+            </div>
+            <div class="accordion-content">
+                <h2><b>Statistics</b></h2>
+                <br>
+                <table style="height: 10px; line-height: 0.9; font-size: 13px;" width="500">
+                <tbody>
+                <tr>
+                <td><b style="color: #ffffff;">Winning The UK's National Jackpot Loterry:</b></td>
+                <td><p style="color: #ffffff;">0.000007%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Coin Flip:</b></td>
+                <td><p style="color: #ffffff;">50%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Roll a Pair With Dice:</b></td>
+                <td><p style="color: #ffffff;">2.8%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Being Right Handed:</b></td>
+                <td><p style="color: #ffffff;">88%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Being Left Handed:</b></td>
+                <td><p style="color: #ffffff;">12%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Be Born a Female:</b></td>
+                <td><p style="color: #ffffff;">49.552%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Be Born a Male:</b></td>
+                <td><p style="color: #ffffff;">50.448%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Overdose from Marijuana:</b></td>
+                <td><p style="color: #ffffff;">0%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">Being Crushed by a Vending Machine:</b></td>
+                <td><p style="color: #ffffff;">0.000021%</p></td>
+                </tr>
+                <tr>
+                <tr>
+                <td><b style="color: #ffffff;">Be Killed by a Falling Coconut:</b></td>
+                <td><p style="color: #ffffff;">0.00026%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">To Die In a Bed:</b></td>
+                <td><p style="color: #ffffff;">~70%</p></td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+            <div class="accordion-separator"></div>
+        </li>
+        <li>
+            <input type="radio" name="select" class="accordion-select" />
+            <div class="accordion-title">
+                <span><b>Probabilities</b></span>
+            </div>
+            <div class="accordion-content" >
+                <h2><b>Probabilities</b></h2>
+                <i>"The probability of any outcome from a random phenomenom is the proportion of times the outcome 
+                would occur in a very long series of repetitions."</i>
+                <br>
+                <table style="height: 20px;" width="650" style="text-align: center; line-height: 1; font-size: 17px;">
+                <tbody>
+                <tr>
+                <td><p style="color: #ffffff;"> <b>Theoretical probability:</b><br><i>"Logical Probability"</i><br><br>
+                    Theoretical probabilities are calculated through mathematicaly logical reasoning to obtain a theoretical approximation of the result of a long series of repeteted test.</p></td>
+                <td><p style="color: #ffffff;"> <b>Experimental probability:</b><br><i>"Field-Tested Probability"</i><br><br>
+                    Experimental probabilities are caulculated through repeated and controlled test which constrast a possible pattern giving an overall probability.</p></td>
+                </tr>
+                </tbody>
+                </table>
+                
+            </div>
+            <div class="accordion-separator"></div>
+        </li>
+    </ul>
+</div>
+  </div>
+
+    <script>
 
   /*----------------Speech----------------*/
   var speech = 1;
@@ -537,12 +855,12 @@ generated automatically and are common for each slider. */
   }
       
   function LMsg() {
-    eLMsg = document.getElementById("overlay");
+    eLMsg = document.getElementById("GameOver");
 	eLMsg.style.visibility = (eLMsg.style.visibility == "visible") ? "hidden" : "visible";
    } 
 
    window.onclick = function(event) {
-    eLMsg = document.getElementById("overlay");
+    eLMsg = document.getElementById("GameOver");
     if (event.target == eLMsg) {
         LMsg();
     }
@@ -552,6 +870,12 @@ generated automatically and are common for each slider. */
          playPause();
        }
    }
+   
+   function SMsg() {
+    eLMsg = document.getElementById("Source");
+	eLMsg.style.visibility = (eLMsg.style.visibility == "visible") ? "hidden" : "visible";
+   } 
+
 
    function playPause() { 
     var myVideo = document.getElementById("v"); 
@@ -559,226 +883,26 @@ generated automatically and are common for each slider. */
         myVideo.play(); 
     else 
         myVideo.pause(); 
-    } 
-</script>
-
-<body onload="var e = document.getElementById('c1'); e.style.border = '2px solid black';">
-    <div id="overlay">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-     <div>
-         <a href='#' onclick='LMsg()' id="close">&times;</a>
-         <b>Game Over!</b><br><p>Score: <i id="TScore"></i></p> 
-
-     </div>
-    </div>
-
-  <!-- Sounds -->
-    <audio id="audioW" src="Resc/Audio/GetPoint.mp3" ></audio>
-    <audio id="audioL" src="Resc/Audio/GameOver.mp3" ></audio>
+    }
     
-  <!-- Navigation bar -->
-  <ul id="drop-nav" style="border: 1px solid #e7e7e7;">
-    <li style= "display: inline-block;
-    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box1','Box2','Box3','Box4');"  class="active" >Home</a>
-    </li>
-    <li style= "display: inline-block;
-    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box2','Box1','Box3','Box4');">Probably</a>
-    </li>
-    <li style= "display: inline-block;
-    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box3','Box1','Box2','Box4');">Statistically</a>
-    </li>
-    <li style= "display: inline-block;
-    width: 200px;"><a href="javascript:void(0)" onclick="toggle_visibility('Box4','Box1','Box2','Box3');">About</a>
-    </li>
-  </ul>
+var acc = document.getElementsByClassName("List");
+var i;
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+  	  panel.style.maxHeight = null;
+      document.getElementById("SMsgBox").style.height = parseInt(document.getElementById("SMsgBox").style.height) - 84 + "px";
+    } else {
+  	  panel.style.maxHeight = panel.scrollHeight + "px";
+      document.getElementById("SMsgBox").style.height = parseInt(document.getElementById("SMsgBox").style.height) + 84 + "px";
+    } 
+  }
+}
 
-  <!-- Box -->
-  <div id="Box1"> 
-      
-    <div class="stitch">
-      <img id="Title" src="Resc/Title.png" width=260; height=130;> 
-       
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <img id="Helper" src="Resc/HelperWave.gif" width=442; height=300; style="float: right;" onclick="nextSpeech();"> 
-    <br>
-    <br>
-    <br>
-    <br>
-    <img id="speech" src="Resc/Bubble1.png" width=400; height=200>
-  </div>
-
-
-  <div id="Box2"> 
-      <a href='#' onclick='LMsg()' id="close">&times;</a>
-      <div id="s" class="Score">0</div>
-      <br>
-      <p><b>Which is more Statistically Probable to happen:</b></p>
-    <div id="c1" class= "card" onclick="select('c1', 'c2');">
-     
-        <div class="front face">
-          <img id="PicF1" src="Resc/card.png"  width=200; height=300>
-        </div>
-        <div class="back face">
-          <img id="PicB1" src="Resc/card.png" width=200; height=300>
-        </div>
-      
-    </div>
-
-    <div id="c2" class= "card" onclick="select('c2', 'c1');">
-        <div class="front face">
-          <img id="PicF2" src="Resc/card.png" width=200; height=300;>  
-        </div>
-        <div class="back face">
-          <img id="PicB2" src="Resc/card.png" width=200; height=300;> 
-        </div>
-    </div>
-
-    <br>
-    <br>
-
-    <input type="button" id="b" class="Button" value="Next" onClick=next();>  
-  </div>
-
-  <div id="Box3"> 
-      <video id="v" width="1000" >
-    <source src="Resc/Main.mp4" type="video/mp4">
-    <source src="Resc/Main.ogg" type="video/ogg">
-    Your browser does not support HTML5 video.
-  </video>
-  </div>
-
-  <div id="Box4"> 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <div class="accordion">
-    <ul>
-        <li>
-            <input type="radio" name="select" class="accordion-select" checked />
-            <div class="accordion-title">
-                <span><b>About The Website</b></span>
-            </div>
-            <div class="accordion-content">
-                <h2><b>About The Website</b></h2>
-    <p>This is an interactive website which explores the perspective of the world & the influence of statistics/probility in our society, and introduce the impact of misleading Statistics & Probabilities to the user through interactive activities and graphical information. This project is made by Jez (me) for educational purpose as part of a personal project in the IB Diploma.</p> 
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span><b>About Me</b></span>
-            </div>
-            <div class="accordion-content">
-                <h2><b>About Me</b></h2>
-                <p style="float: left;">I'm <b>Jez</b> and I am the person who coded this website. <b>Yeap</b>! All by myself. Oh and before I forget, a <b>big</b> <b>thank you</b> thank you to <b>Mr Askew</b> for guiding through the process of the developing this website.</p>
-
-                <img id="Helper" src="Resc/Helper.png" width=175; height=175; style="float: right;" > 
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span><b>Statistics</b></span>
-            </div>
-            <div class="accordion-content">
-                <h2><b>Statistics</b></h2>
-                <br>
-                <table style="height: 10px; line-height: 0.9; font-size: 13px;" width="500">
-                <tbody>
-                <tr>
-                <td><b style="color: #ffffff;">Winning The UK's National Jackpot Loterry:</b></td>
-                <td><p style="color: #ffffff;">0.000007%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Coin Flip:</b></td>
-                <td><p style="color: #ffffff;">50%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Roll a Pair With Dice:</b></td>
-                <td><p style="color: #ffffff;">2.8%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Being Right Handed:</b></td>
-                <td><p style="color: #ffffff;">88%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Being Left Handed:</b></td>
-                <td><p style="color: #ffffff;">12%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Be Born a Female:</b></td>
-                <td><p style="color: #ffffff;">49.552%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Be Born a Male:</b></td>
-                <td><p style="color: #ffffff;">50.448%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Overdose from Marijuana:</b></td>
-                <td><p style="color: #ffffff;">0%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">Being Crushed by a Vending Machine:</b></td>
-                <td><p style="color: #ffffff;">0.000021%</p></td>
-                </tr>
-                <tr>
-                <tr>
-                <td><b style="color: #ffffff;">Be Killed by a Falling Coconut:</b></td>
-                <td><p style="color: #ffffff;">0.00026%</p></td>
-                </tr>
-                <tr>
-                <td><b style="color: #ffffff;">To Die In a Bed:</b></td>
-                <td><p style="color: #ffffff;">~70%</p></td>
-                </tr>
-                </tbody>
-                </table>
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span><b>Probabilities</b></span>
-            </div>
-            <div class="accordion-content" >
-                <h2><b>Probabilities</b></h2>
-                <i>"The probability of any outcome from a random phenomenom is the proportion of times the outcome 
-                would occur in a very long series of repetitions."</i>
-                <br>
-                <br>
-                <table style="height: 20px;" width="650" style="text-align: center; line-height: 1; font-size: 17px;">
-                <tbody>
-                <tr>
-                <td><p style="color: #ffffff;"> <b>Theoretical probability:</b><br><i>"Logical Probability"</i><br><br>
-                    Theoretical probabilities are calculated through mathematicaly logical reasoning to obtain a theoretical approximation of the result of a long series of repeteted test.</p></td>
-                <td><p style="color: #ffffff;"> <b>Experimental probability:</b><br><i>"Field-Tested Probability"</i><br><br>
-                    Experimental probabilities are caulculated through repeated and controlled test which constrast a possible pattern giving an overall probability.</p></td>
-                </tr>
-                </tbody>
-                </table>
-                
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-    </ul>
-</div>
-  </div>
-
+</script>
+    
 </body>
 </html>
