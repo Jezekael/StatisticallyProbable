@@ -1,6 +1,6 @@
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Statistically Probable</title>
     <link rel="icon" href="/resc/Icon.png">
@@ -18,10 +18,10 @@
 
   }
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    width: 0px; 
+    background: transparent; 
 }
-/* optional: show position indicator in red */
+
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
@@ -188,7 +188,7 @@
          font-family: "Consolas", sans-serif;
     }
     
-    /* The Close Button */
+
     .close {
         color: white;
         float: right;
@@ -197,11 +197,11 @@
         text-decoration: none
     }
 
-.close:hover,
-.close:focus {
-    color: #aaaaaa;
-    text-decoration: none;
-    cursor: pointer;
+    .close:hover,
+    .close:focus {
+        color: #aaaaaa;
+        text-decoration: none;
+        cursor: pointer;
 }
 /*----------------Accordeon----------------*/ 
     .accordion {
@@ -385,7 +385,7 @@ div.panel {
     </div>
     <div id="Source" class="overlay">
     <br><br><br><br>
-     <div id="SMsgBox" style="background: rgb(235,235,235); border: none; color: #444; font-size: 15px; height: 650px;">
+     <div id="SMsgBox" style="background: rgb(235,235,235); border: none; color: #444; font-size: 15px; height: 850px;">
          <a href='#' onclick='SMsg()' class="close" style="color: black;">&times;</a>
          <h2>Sources</h2>
 <p>Here is every sources for each individual statistics or information. <b>Have fun!</b></p>
@@ -404,7 +404,7 @@ div.panel {
 <button class="List"><b>Born female</b></button>
 <div class="panel">
     <p><b>Probability:</b> 49.552%<br>
-        <b>Sources:</b> The World Bank Group (2016) Population, female (% of total). Available at: <a href='http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS' style="color:black">http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS</a> (Accessed: 22 October 2016).</p>
+        <b>Sources:</b> The World Bank Group (2016) Population, female (% of total). Available at: <a href='http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS' style="color:black">http://data.worldbank.org/indicator/SP.POP.TOTL.FE.ZS</a> (Accessed: 5 October 2016).</p>
 </div>
          
 <button class="List"><b>Born male</b></button>
@@ -417,6 +417,18 @@ div.panel {
 <div class="panel">
     <p><b>Probability:</b> 70% ~ approximation <br>
         <b>Sources:</b> Bruce Benamran, (2014).  Le lieu le plus dangereux de France - e-penser [online] Available from: <a href='https://www.youtube.com/watch?v=lg2hFq9RlYM' style="color:black">https://www.youtube.com/watch?v=lg2hFq9RlYM</a> [accessed 17/05/2016].</p>
+</div>
+
+<button class="List"><b>Alcohol</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 3.97% ~ 2,250,000/56,661,126 <br>
+        <b>Sources:</b>  World Health Organization (2012) Global status report on alcohol and health. Available at: <a href='http://www.who.int/substance_abuse/publications/global_alcohol_report/msbgsruprofiles.pdf' style="color:black">http://lottery.merseyworld.com/Info/Chances.html (Accessed: 21 October 2016).</a></p>
+</div>
+
+<button class="List"><b>Cancer</b></button>
+<div class="panel">
+    <p><b>Probability:</b> 15.53% ~ 8,800,000 /56,661,126 <br>
+        <b>Sources:</b> Cancer Research UK (2017) Worldwide cancer statistics. Available at: <a href='http://www.cancerresearchuk.org/health-professional/cancer-statistics/worldwide-cancer#heading-Two' style="color:black">http://lottery.merseyworld.com/Info/Chances.html (Accessed: 15 September 2016).</a></p>
 </div>
 
 <button class="List"><b>Wining The United Kingdom's National Lottery Jackpot</b></button>
@@ -555,8 +567,7 @@ div.panel {
             </div>
             <div class="accordion-content">
                 <h2><b>Statistics</b></h2>
-                <br>
-                <table style="height: 10px; line-height: 0.9; font-size: 13px;" width="500">
+                <table style="height: 9px; line-height: 0.9; font-size: 12px;" width="500">
                 <tbody>
                 <tr>
                 <td><b style="color: #ffffff;">Winning The UK's National Jackpot Loterry:</b></td>
@@ -602,6 +613,14 @@ div.panel {
                 <tr>
                 <td><b style="color: #ffffff;">To Die In a Bed:</b></td>
                 <td><p style="color: #ffffff;">~70%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">To Have a Alcohol Realated Death:</b></td>
+                <td><p style="color: #ffffff;">~3.97%</p></td>
+                </tr>
+                <tr>
+                <td><b style="color: #ffffff;">To Die of Cancer:</b></td>
+                <td><p style="color: #ffffff;">~15.53%</p></td>
                 </tr>
                 </tbody>
                 </table>
@@ -678,6 +697,8 @@ div.panel {
     "Resc/Bed.png",
     "Resc/Male.png",
     "Resc/Female.png",
+    "Resc/Alcohol.png",
+    "Resc/Cancer.png",
   ];
   var Back = [
     "Resc/CoconutB.png",
@@ -691,6 +712,8 @@ div.panel {
     "Resc/BedB.png",
     "Resc/MaleB.png",
     "Resc/FemaleB.png",
+    "Resc/AlcoholB.png",
+    "Resc/CancerB.png",
       
   ];
     
@@ -706,6 +729,8 @@ div.panel {
     70,
     50.448,
     49.552,
+    3.97,
+    15.53,
   ];
   var c1 = 0;
   var c2 = 0;
@@ -716,7 +741,7 @@ div.panel {
 
 
   function random() {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 13);
   }
     
   function playW(){
